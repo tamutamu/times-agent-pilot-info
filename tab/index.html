@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="times-agent-tab" content="times-agent-guide-v1"><title>接続ガイド | Times エージェント</title>
+<style>:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light;color:#282444;background:#f6f5fc}*{box-sizing:border-box}body{margin:0}main{max-width:750px;margin:2rem auto;padding:2rem;background:white;border-radius:16px;border:1px solid #ddd8eb}h1{font-size:1.6rem}h2{font-size:1.1rem;margin-top:1.75rem}.notice{background:#fff4df;border-left:5px solid #b87b0a;padding:1rem;line-height:1.6}p,li{line-height:1.7}a{color:#4a379d}footer{margin-top:2rem;font-size:.9rem;color:#514c66}</style>
+<script src="https://res.cdn.office.net/teams-js/2.56.0/js/MicrosoftTeams.min.js" integrity="sha384-ftygCQXhLMbuUBdLMhfAnIFTGb2SAYYAPD9iyq2LRkbWpKkEifAGD+qPVcPgthO2" crossorigin="anonymous" defer></script>
+<script defer>document.addEventListener('DOMContentLoaded',function(){var el=document.getElementById('teams-status');if(!window.microsoftTeams||!microsoftTeams.app){el.textContent='Teams SDKを読み込めませんでした。通信環境をご確認ください。';return;}microsoftTeams.app.initialize().then(function(){el.textContent='Teams画面の初期化が完了しました。';}).catch(function(){el.textContent='Teams内での初期化を確認できません。ブラウザー単体の場合はTeamsから開いてください。';});});</script>
+</head><body><main><h1>Times エージェント｜接続ガイド</h1>
+<p id="teams-status" role="status" aria-live="polite">Teams画面を初期化しています…</p>
+<div class="notice"><strong>現時点では投稿を取得していません。</strong> このページは案内用の静的タブです。権限付与状況やGraph接続をリアルタイム監視する画面ではありません。</div>
+<h2>このアプリでできること</h2><p>今は試験目的、利用条件、問い合わせ先を確認できます。Graph購読、実投稿取得、AI推論、人物紹介、Botメッセージ送信は未接続です。</p>
+<h2>導入時の権限</h2><p>アプリが要求する <code>ChannelMessage.Read.Group</code> は<strong>導入先チーム全体</strong>のチャネルメッセージ読み取りを許可します。1チャンネルに限るMicrosoft側権限ではありません。投稿取得の設定は別工程で承認・実装します。</p>
+<h2>導入後の確認</h2><p>テストチームの「アプリ」に表示されることと、管理者が権限内容を確認できることを確認してください。画面が表示されたことだけで権限付与済みとは判定しません。</p>
+<p><a href="../">サポート・問い合わせ</a> ｜ <a href="../privacy/">プライバシー説明</a> ｜ <a href="../terms/">利用条件</a></p>
+<footer>Times Agent 個人開発試験版。機密情報や実業務データを入力しないでください。</footer></main></body></html>
