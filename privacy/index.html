@@ -35,7 +35,9 @@ code{background:#f1f1f7;padding:.08rem .3rem;border-radius:4px}
 <li>同じ通知を繰り返さないための通知記録</li>
 </ul>
 <h2>AI処理</h2>
-<p>対象Timesの発話は、話題・経験・困りごと・会話文脈などを構造化するためGoogle Cloud Vertex AI Geminiへ送信します。抽出結果はGoogle Cloud Storage上のGraph Memoryに保存します。</p>
+<p>対象Timesの発話は、話題・経験・困りごと・会話文脈などを構造化するためGoogle Cloud Vertex AI Geminiで処理します。Prompt Injectionのような明示的な命令パターンはGeminiへ送る前に遮断します。AI抽出結果はprovenance・confidence・content policyを検証した上で、通過したものだけをGoogle Cloud Storage上のTrusted Semantic Graphへ保存します。</p>
+<h2>Trusted RAGから除外する内容</h2>
+<p>宗教・宗教団体への支持・勧誘・説得・擁護、特定政党・候補者・選挙運動・投票選択への支持・反対・説得、暴力・犯罪を主題とする発話、特定個人への侮辱・非難・敵対的評価は、Raw Memoryには保持してもTrusted Semantic Graph、RAG検索、自律DMの根拠には利用しません。宗教・政党・人物についての中立的な事実言及だけで除外することはありません。</p>
 <h2>Teams DM</h2>
 <p>Times エージェントは、関連人物または最近その話題で困っていた人へ1:1 Teams DMを送ることがあります。候補者からTimes エージェントへの個人DM返信は、知識化・検索・保存の対象にしません。</p>
 <h2>利用しない情報・目的</h2>
@@ -47,7 +49,7 @@ code{background:#f1f1f7;padding:.08rem .3rem;border-radius:4px}
 <h2>保存期間・削除</h2>
 <p>現在のハッカソン/限定試験では、対象データは運営者が明示的に削除するか、試験環境を終了するまで保持します。自動削除期間は現在設定していません。削除・対象除外を希望する場合は問い合わせ窓口へご連絡ください。</p>
 <h2>セキュリティ</h2>
-<p>Graph MemoryはGoogle Cloud Storageに保存し、公開アクセスを禁止しています。MicrosoftアプリのCredentialはGoogle Secret Managerで管理します。Semantic Graphの関係には可能な範囲で根拠Message IDを保持し、由来を追跡できるようにします。</p>
+<p>Graph MemoryはGoogle Cloud Storageに保存し、公開アクセスを禁止しています。MicrosoftアプリのCredentialはGoogle Secret Managerで管理します。Semantic Graphの関係には根拠Message IDを保持し、由来を検証します。自律DMにはKill Switch、重複抑止、送信数上限を設け、Governance Auditには投稿本文や個人IDを含めず判断理由だけを記録します。</p>
 <h2>問い合わせ</h2>
 <p>対象チャンネルからの除外、保存データの削除、試験参加の中止、その他の質問は下記までご連絡ください。</p>
 <footer>

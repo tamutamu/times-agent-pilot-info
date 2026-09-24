@@ -26,10 +26,12 @@ code{background:#f1f1f7;padding:.08rem .3rem;border-radius:4px}
 <h2>できること</h2>
 <ul>
 <li>許可済みTimesの投稿・返信をMicrosoft Graphで取得します。</li>
-<li>発話をRaw Memoryとして保持し、Vertex AI GeminiでTopic・Entity・Episode・関係を抽出します。</li>
+<li>発話をRaw Memoryとして保持し、ガバナンスポリシーを通過した内容だけをVertex AI GeminiでTopic・Entity・Episode・関係へ構造化します。</li>
 <li>困りごとが投稿されたとき、関連する経験を持つ人へ1:1 DMで知らせます。</li>
 <li>後から関連する知見が投稿されたとき、最近その話題で困っていた人へ新しい投稿を届けます。</li>
 </ul>
+<h2>RAGに載せない領域</h2>
+<p>宗教・宗教団体への支持/勧誘、特定政党・候補者・投票選択への支持/反対の説得、暴力・犯罪を主題とする発話、特定個人への批判・攻撃は、Raw Memoryには保持してもTrusted Semantic Graph、RAG検索、自律DMの根拠には利用しません。中立的な事実言及だけで除外することはありません。</p>
 <h2>利用者の操作</h2>
 <p>Botコマンド、紹介依頼、承諾・辞退、解決登録は不要です。対象Timesでは普段どおり投稿します。DM送信後の人同士のやり取りにはTimes エージェントは関与しません。</p>
 <h2>Teamsの権限</h2>
