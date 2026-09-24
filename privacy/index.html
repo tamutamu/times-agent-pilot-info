@@ -1,12 +1,59 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="times-agent-policy" content="times-agent-pilot-policy-site-v1"><title>プライバシー説明 | Times エージェント</title>
-<style>*{box-sizing:border-box}body{margin:0;background:#f7f7fd;color:#202038;font:16px/1.8 system-ui,-apple-system,"Yu Gothic",sans-serif}main{max-width:830px;padding:32px 23px 65px;margin:35px auto;background:white;border-radius:18px;box-shadow:0 5px 30px #26265010}h1{font-size:clamp(25px,4vw,35px);line-height:1.3}h2{font-size:22px;margin-top:34px;color:#473d91}nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#41369c}a:focus-visible{outline:3px solid #5948b4}p,li{overflow-wrap:anywhere}.notice{padding:15px 18px;background:#fff4df;border-left:5px solid #c77c00;border-radius:5px}footer{margin-top:45px;border-top:1px solid #ddd;padding-top:16px;color:#45455b;font-size:14px}</style></head><body><main><nav aria-label="ページ案内"><a href="../">概要・サポート</a><a href="../privacy/">プライバシー</a><a href="../terms/">利用条件</a></nav>
-<h1>プライバシー説明</h1><p class="notice"><strong>現時点で実データの自動収集は有効にしていません。</strong> Microsoft Teams自体のデータ処理と、本試作アプリによる処理は別です。</p>
-<h2>目的・範囲</h2><p>指定されたテストチームの特定チャンネルに、今後投稿する架空の文章だけを使い、将来的に対話支援を検証する計画です。過去の投稿、別チーム・別チャンネル、実業務情報を取得対象としません。</p>
-<h2>権限と技術的な範囲</h2><p><code>ChannelMessage.Read.Group</code> は導入先チーム全体のチャネルメッセージ読み取りを可能にします。チャンネル単位のMicrosoft側制限はありません。アプリ側では1チャンネルの許可リストを設け、現在は実投稿取得を無効にしています。</p>
-<h2>現在のデータ処理</h2><p>Microsoft Graphの購読、実投稿本文の取得、BotのDM送信、Gemini・Vertex AI等への送信、第三者紹介は現在行っていません。コードによる実投稿の保存やAI処理は未開始です。</p>
-<h2>将来の処理を開始する条件</h2><p>処理目的と対象、投稿者各自の同意、組織の承認、処理地域、保存期間、削除・撤回手順を確定し、個別の許可と実装・検証を終えるまで実取得を開始しません。アプリをインストールしたことは、投稿取得、国外AI処理、個人プロフィールの取得、DMや第三者共有への同意になりません。</p>
-<h2>保持・削除</h2><p>実投稿の収集を開始していないため、本アプリが取得した実投稿の保存期間は現時点で適用されません。将来の保存期間・削除期限は未確定であり、決まるまで実投稿を取得しません。TeamsやMicrosoft 365上にもともと存在するデータは、Microsoft 365の契約・組織側の管理に従います。</p>
-<h2>問い合わせ・同意撤回</h2><p>ページ末尾の連絡先にご連絡ください。チーム所有者へのアプリ削除依頼も可能です。外部送信や他者共有の機能は別の明示同意・承認まで有効化しません。</p>
-<footer>運営者：Times Agent。問い合わせ・停止・撤回の窓口：<a href="mailto:tamu.0.0.tamu@gmail.com">tamu.0.0.tamu@gmail.com</a>。<br>Times エージェントの限定試験向け説明。最終更新：2026-09-22。</footer></main></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="times-agent-policy" content="times-agent-policy-site-v2">
+<title>プライバシー | Times エージェント</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f7fd;color:#202038;font:16px/1.8 system-ui,-apple-system,"Yu Gothic",sans-serif}
+main{max-width:860px;padding:32px 24px 64px;margin:36px auto;background:#fff;border-radius:18px;box-shadow:0 5px 30px #26265010}
+h1{font-size:clamp(26px,4vw,36px);line-height:1.3}h2{font-size:22px;margin-top:34px;color:#473d91}
+nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#41369c}a:focus-visible{outline:3px solid #5948b4}
+p,li{overflow-wrap:anywhere}.notice{padding:15px 18px;background:#fff4df;border-left:5px solid #c77c00;border-radius:5px}
+footer{margin-top:45px;border-top:1px solid #ddd;padding-top:16px;color:#45455b;font-size:14px}
+code{background:#f1f1f7;padding:.08rem .3rem;border-radius:4px}
+</style>
+</head>
+<body><main>
+<nav aria-label="ページ案内">
+<a href="../">概要・サポート</a>
+<a href="../privacy/">プライバシー</a>
+<a href="../terms/">利用条件</a>
+</nav>
+<h1>プライバシー</h1>
+<p class="notice">Times エージェントは、許可済みTimesの発話を実際に取得・保存・AI処理します。利用範囲と保存内容を以下に示します。</p>
+<h2>処理対象</h2>
+<p>運営者が設定したMicrosoft TeamsのTeamおよび許可済みTimesチャンネルの投稿・返信を処理します。Microsoft側のRSC権限 <code>ChannelMessage.Read.Group</code> はTeam単位の権限ですが、アプリ側ではTeam ID・Channel IDの許可リストで処理対象を制限します。</p>
+<h2>保存する情報</h2>
+<ul>
+<li>Times投稿・返信の本文</li>
+<li>投稿者のMicrosoft Entra/AAD IDと表示名</li>
+<li>Team / Channel / Message / Threadの識別子</li>
+<li>投稿時刻と、取得できる場合はTeams投稿URL</li>
+<li>AIが抽出したTopic・Entity・Episode・関係と、その根拠となるMessage ID</li>
+<li>同じ通知を繰り返さないための通知記録</li>
+</ul>
+<h2>AI処理</h2>
+<p>対象Timesの発話は、話題・経験・困りごと・会話文脈などを構造化するためGoogle Cloud Vertex AI Geminiへ送信します。抽出結果はGoogle Cloud Storage上のGraph Memoryに保存します。</p>
+<h2>Teams DM</h2>
+<p>Times エージェントは、関連人物または最近その話題で困っていた人へ1:1 Teams DMを送ることがあります。候補者からTimes エージェントへの個人DM返信は、知識化・検索・保存の対象にしません。</p>
+<h2>利用しない情報・目的</h2>
+<ul>
+<li>個人DM本文をGraph Memoryへ保存しません。</li>
+<li>広告配信やデータ販売を目的に利用しません。</li>
+<li>発話だけから人物の能力、性格、心理状態を断定しません。</li>
+</ul>
+<h2>保存期間・削除</h2>
+<p>現在のハッカソン/限定試験では、対象データは運営者が明示的に削除するか、試験環境を終了するまで保持します。自動削除期間は現在設定していません。削除・対象除外を希望する場合は問い合わせ窓口へご連絡ください。</p>
+<h2>セキュリティ</h2>
+<p>Graph MemoryはGoogle Cloud Storageに保存し、公開アクセスを禁止しています。MicrosoftアプリのCredentialはGoogle Secret Managerで管理します。Semantic Graphの関係には可能な範囲で根拠Message IDを保持し、由来を追跡できるようにします。</p>
+<h2>問い合わせ</h2>
+<p>対象チャンネルからの除外、保存データの削除、試験参加の中止、その他の質問は下記までご連絡ください。</p>
+<footer>
+運営者：Times Agent<br>
+問い合わせ：<a href="mailto:tamu.0.0.tamu@gmail.com">tamu.0.0.tamu@gmail.com</a><br>
+最終更新：2026-09-24
+</footer>
+</main></body>
+</html>
